@@ -6,7 +6,7 @@ import os
 st.set_page_config(page_title="Generator naljepnica", layout="centered")
 
 st.title("Generator naljepnica")
-st.title("110!")
+st.title("210!")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -18,13 +18,20 @@ def nadji_sliku(broj):
     return None
 
 def font(velicina, bold=False):
-    try:
-        if bold:
-            return ImageFont.truetype("DejaVuSans-Bold.ttf", velicina)
-        else:
-            return ImageFont.truetype("DejaVuSans.ttf", velicina)
-    except:
-        return ImageFont.load_default()
+    putanje = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "C:/Windows/Fonts/arialbd.ttf",
+        "C:/Windows/Fonts/arial.ttf"
+    ]
+
+    for putanja in putanje:
+        if os.path.exists(putanja):
+            return ImageFont.truetype(putanja, velicina)
+
+    st.warning("Nije pronađen pravi font. Koristi se mali default font.")
+    return ImageFont.load_default()
 
 def generiraj_naljepnicu(slika_broj, firma, naziv, dimenzije, donji_tekst):
     W, H = 1600, 1000
@@ -53,7 +60,7 @@ def generiraj_naljepnicu(slika_broj, firma, naziv, dimenzije, donji_tekst):
         draw.text((220, 360), "Nema slike", fill="black", font=font(35, True))
 
     # fontovi
-    font_firma = font(105, True)
+    font_firma = font(145, True)
     font_naziv = font(90, True)
     font_dim = font(85, True)
     font_donji = font(80, True)
