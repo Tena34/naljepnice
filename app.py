@@ -6,7 +6,7 @@ import os
 st.set_page_config(page_title="Generator naljepnica", layout="centered")
 
 st.title("Generator naljepnica")
-st.title("310!")
+st.title("410!")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -48,9 +48,9 @@ def generiraj_naljepnicu(slika_broj, firma, naziv, dimenzije, donji_tekst):
 
     # fontovi
     font_firma = font(80, True)
-    font_naziv = font(78, True)
-    font_dim = font(70, True)
-    font_donji = font(70, True)
+    font_naziv = font(60, True)
+    font_dim = font(50, True)
+    font_donji = font(50, True)
 
     x_text = 520
 
