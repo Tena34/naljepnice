@@ -61,11 +61,11 @@ def generiraj_naljepnicu(slika_broj, firma, naziv, dimenzije, donji_tekst):
         draw.text((220, 360), "Nema slike", fill="black", font=font(35, True))
 
     # fontovi
-    font_firma = font(80, True)
-    font_naziv = font(78, True)
-    font_dim = font(70, True)
-    font_donji = font(70, True)
-    font_komadi = font(70, True)
+    font_firma = font(100, True)
+    font_naziv = font(96, True)
+    font_dim = font(90, True)
+    font_donji = font(90, True)
+    font_komadi = font(90, True)
 
     x_text = 520
 
