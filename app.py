@@ -80,7 +80,7 @@ st.subheader("Odaberi sliku vijka")
 if "slika_broj" not in st.session_state:
     st.session_state.slika_broj = 1
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
     putanja1 = nadji_sliku(1)
@@ -109,6 +109,13 @@ with col4:
         st.image(putanja4, width=120)
     if st.button("Odaberi 4"):
         st.session_state.slika_broj = 4
+
+with col5:
+    putanja5 = nadji_sliku(5)
+    if putanja5:
+        st.image(putanja5, width=120)
+    if st.button("Odaberi 5"):
+        st.session_state.slika_broj = 5
 
 st.success(f"Trenutno odabrana slika: {st.session_state.slika_broj}")
 
